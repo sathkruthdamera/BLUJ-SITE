@@ -1,19 +1,98 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>My static Space</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="card">
-			<h1>Welcome to your static Space!</h1>
-			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
-			<p>
-				Also don't forget to check the
-				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
-			</p>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@bluj | guns.lol</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // blue-800
+                        secondary: '#9ca3af', // gray-400
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-mono">
+    <div id="vanta-bg" class="fixed inset-0 -z-10 opacity-20"></div>
+
+    <main class="container mx-auto px-4 py-12 max-w-4xl">
+        <div class="flex flex-col items-center space-y-8">
+            <!-- Snowflake decorations -->
+            <div class="flex flex-wrap justify-center gap-4 opacity-60">
+                <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
+                <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
+                <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
+            </div>
+
+            <!-- Profile image -->
+            <div class="group relative">
+                <img 
+                    src="https://r2.guns.lol/ba01a19d-a356-41cf-99a0-9b92a3941a42.webp" 
+                    alt="bluj profile" 
+                    class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg transform group-hover:rotate-6 transition-transform duration-500"
+                >
+            </div>
+
+            <!-- Name -->
+            <h1 class="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                bluj
+            </h1>
+
+            <!-- Tagline -->
+            <h2 class="text-xl text-center text-gray-400 italic">
+                REAL HAUS_MAN -- SPINNING EVEN B4 BERLIN WALL F
+            </h2>
+
+            <!-- Location -->
+            <p class="text-lg text-gray-300">HTX</p>
+
+            <!-- Social links -->
+            <div class="flex space-x-6 pt-4">
+                <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors">
+                    <i data-feather="instagram" class="w-6 h-6"></i>
+                </a>
+                <a href="https://youtube.com/@BLUJ720" class="hover:text-primary transition-colors">
+                    <i data-feather="youtube" class="w-6 h-6"></i>
+                </a>
+            </div>
+
+            <!-- Counter -->
+            <div class="pt-8 text-gray-500">
+                <span>0</span>
+                <span class="px-2">@</span>
+            </div>
+
+            <!-- Divider -->
+            <div class="w-full border-t border-gray-700 pt-8"></div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    <script>
+        VANTA.GLOBE({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x111827
+        });
+
+        feather.replace();
+    </script>
+</body>
 </html>
