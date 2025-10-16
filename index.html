@@ -1,157 +1,192 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DJ BLU-J</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1e40af',
-                        secondary: '#9ca3af',
-                    }
-                }
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ BLU-J</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e40af',
+            secondary: '#9ca3af',
+          }
         }
-    </script>
+      }
+    }
+  </script>
+
+  <style>
+    /* ---- custom CSS overrides ---- */
+    body {
+      padding: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Arial", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .card {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      background-color: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(10px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2, h3 {
+      letter-spacing: 1px;
+    }
+
+    p {
+      color: rgb(209, 213, 219);
+      font-size: 15px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
+
 <body class="bg-gray-900 text-gray-100 min-h-screen font-mono relative overflow-hidden">
-    <!-- Full background video -->
-    <video 
-        autoplay 
-        muted 
-        loop 
-        playsinline 
-        class="fixed inset-0 w-full h-full object-cover -z-10"
-        src="https://r2.guns.lol/b1a06759-5701-46b7-8443-ac8871aca5d3.mp4">
-    </video>
+  <!-- full-page background video -->
+  <video autoplay muted loop playsinline
+    class="fixed inset-0 w-full h-full object-cover -z-10"
+    src="https://r2.guns.lol/b1a06759-5701-46b7-8443-ac8871aca5d3.mp4">
+  </video>
 
-    <main class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
-        <div class="flex flex-col items-center space-y-8">
-            <!-- Snowflake decorations -->
-            <div class="flex flex-wrap justify-center gap-4 opacity-60">
-                <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
-                <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
-                <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
-            </div>
+  <main class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
+    <div class="flex flex-col items-center space-y-8">
 
-            <!-- Profile image -->
-            <div class="group relative">
-                <img 
-                    src="https://r2.guns.lol/ba01a19d-a356-41cf-99a0-9b92a3941a42.webp" 
-                    alt="bluj profile" 
-                    class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg transform group-hover:rotate-6 transition-transform duration-500"
-                >
-            </div>
+      <!-- snowflakes -->
+      <div class="flex flex-wrap justify-center gap-4 opacity-60 fade-in">
+        <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
+        <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
+        <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
+      </div>
 
-            <!-- Name -->
-            <h1 class="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-                bluj
-            </h1>
+      <!-- profile -->
+      <div class="group relative fade-in">
+        <img src="https://r2.guns.lol/ba01a19d-a356-41cf-99a0-9b92a3941a42.webp"
+             alt="bluj profile"
+             class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg transform group-hover:rotate-6 transition-transform duration-500">
+      </div>
 
-            <!-- Tagline -->
-            <h2 class="text-xl text-center text-gray-400 italic">
-                REAL HAUS_MAN -- SPINNING SINCE N BEFORE THE BERLIN WALL
-            </h2>
+      <!-- name -->
+      <h1 class="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary fade-in">
+        bluj
+      </h1>
 
-            <!-- Location -->
-            <p class="text-lg text-gray-300">HTX</p>
+      <!-- tagline -->
+      <h2 class="text-xl text-center text-gray-400 italic fade-in">
+        REAL HAUS_MAN -- SPINNING SINCE N BEFORE THE BERLIN WALL
+      </h2>
 
-            <!-- Social links -->
-            <div class="flex space-x-6 pt-4">
-                <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors">
-                    <i data-feather="instagram" class="w-6 h-6"></i>
-                </a>
-                <a href="https://youtube.com/@BLUJ720" class="hover:text-primary transition-colors">
-                    <i data-feather="youtube" class="w-6 h-6"></i>
-                </a>
-            </div>
+      <!-- location -->
+      <p class="text-lg text-gray-300 fade-in">HTX</p>
 
-            <!-- Dynamic content sections -->
-            <div id="dynamic-content" class="w-full space-y-8 pt-8">
-                <!-- Content will be loaded dynamically -->
-            </div>
+      <!-- socials -->
+      <div class="flex space-x-6 pt-4 fade-in">
+        <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors">
+          <i data-feather="instagram" class="w-6 h-6"></i>
+        </a>
+        <a href="https://youtube.com/@BLUJ720" class="hover:text-primary transition-colors">
+          <i data-feather="youtube" class="w-6 h-6"></i>
+        </a>
+      </div>
 
-            <!-- Counter -->
-            <div class="pt-8 text-gray-500">
-                <span id="counter">0</span>
-                <span class="px-2">@</span>
-            </div>
+      <!-- dynamic content -->
+      <div id="dynamic-content" class="w-full space-y-8 pt-8 fade-in"></div>
 
-            <!-- Divider -->
-            <div class="w-full border-t border-gray-700 pt-8"></div>
-        </div>
-    </main>
+      <!-- counter -->
+      <div class="pt-8 text-gray-500 fade-in">
+        <span id="counter">0</span>
+        <span class="px-2">@</span>
+      </div>
 
-    <script>
-        // Dynamic content loader
-        async function loadDynamicContent() {
-            const contentContainer = document.getElementById('dynamic-content');
-            try {
-                const response = await fetch('https://api.github.com/users/bluj720');
-                const userData = await response.json();
-                
-                const sections = [
-                    {
-                        title: 'About',
-                        content: userData.bio || 'Digital creator and content producer.'
-                    },
-                    {
-                        title: 'Latest Projects',
-                        content: 'Check out my latest videos and creative work on YouTube and Instagram.'
-                    },
-                    {
-                        title: 'Connect',
-                        content: 'Follow me on social media for daily updates and behind-the-scenes content.'
-                    }
-                ];
+      <div class="w-full border-t border-gray-700 pt-8 fade-in"></div>
+    </div>
+  </main>
 
-                sections.forEach(section => {
-                    const sectionElement = document.createElement('div');
-                    sectionElement.className = 'bg-gray-800 bg-opacity-70 rounded-lg p-6 border border-gray-700';
-                    sectionElement.innerHTML = `
-                        <h3 class="text-2xl font-bold text-primary mb-3">${section.title}</h3>
-                        <p class="text-gray-300 leading-relaxed">${section.content}</p>
-                    `;
-                    contentContainer.appendChild(sectionElement);
-                });
+  <script>
+    // intersection observer for smooth fade-in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
 
-            } catch (error) {
-                console.error('Error loading dynamic content:', error);
-                contentContainer.innerHTML = '<p class="text-gray-400">Content loading...</p>';
-            }
-        }
+    // dynamic content
+    async function loadDynamicContent() {
+      const contentContainer = document.getElementById('dynamic-content');
+      try {
+        const response = await fetch('https://api.github.com/users/bluj720');
+        const userData = await response.json();
 
-        // Counter animation
-        function animateCounter() {
-            const counter = document.getElementById('counter');
-            let count = 0;
-            const target = Math.floor(Math.random() * 1000) + 100;
-            
-            const interval = setInterval(() => {
-                count += Math.ceil(target / 50);
-                if (count >= target) {
-                    count = target;
-                    clearInterval(interval);
-                }
-                counter.textContent = count;
-            }, 50);
-        }
+        const sections = [
+          { title: 'About', content: userData.bio || 'Digital creator and content producer.' },
+          { title: 'Latest Projects', content: 'Check out my latest videos and creative work on YouTube and Instagram.' },
+          { title: 'Connect', content: 'Follow me on social media for daily updates and behind-the-scenes content.' }
+        ];
 
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            feather.replace();
-            loadDynamicContent();
-            animateCounter();
-            document.documentElement.style.scrollBehavior = 'smooth';
+        sections.forEach(section => {
+          const sectionElement = document.createElement('div');
+          sectionElement.className = 'card fade-in';
+          sectionElement.innerHTML = `
+            <h3 class="text-2xl font-bold text-primary mb-3">${section.title}</h3>
+            <p class="text-gray-300 leading-relaxed">${section.content}</p>
+          `;
+          contentContainer.appendChild(sectionElement);
+          observer.observe(sectionElement);
         });
-    </script>
+      } catch {
+        contentContainer.innerHTML = '<p class="text-gray-400">Content loading...</p>';
+      }
+    }
+
+    // animated counter
+    function animateCounter() {
+      const counter = document.getElementById('counter');
+      let count = 0;
+      const target = Math.floor(Math.random() * 1000) + 100;
+      const interval = setInterval(() => {
+        count += Math.ceil(target / 50);
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        counter.textContent = count;
+      }, 50);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      feather.replace();
+      loadDynamicContent();
+      animateCounter();
+    });
+  </script>
 </body>
 </html>
