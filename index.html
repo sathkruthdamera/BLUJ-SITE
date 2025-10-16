@@ -15,7 +15,7 @@
         extend: {
           colors: {
             primary: '#1e40af',
-            secondary: '#9ca3af',
+            secondary: '#9ca3af'
           }
         }
       }
@@ -23,106 +23,151 @@
   </script>
 
   <style>
-    /* ---- custom CSS overrides ---- */
+    /* ---- motion theme ---- */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
+      margin: 0;
       padding: 2rem;
       font-family: -apple-system, BlinkMacSystemFont, "Arial", sans-serif;
-      scroll-behavior: smooth;
+      background-color: #0b0b0b;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      letter-spacing: 1px;
+      transition: color .3s ease;
+    }
+
+    p {
+      color: rgb(200, 200, 200);
+      font-size: 15px;
+      margin: 6px 0 10px;
+      line-height: 1.6;
     }
 
     .card {
       max-width: 620px;
       margin: 0 auto;
-      padding: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      background-color: rgba(17, 24, 39, 0.7);
-      backdrop-filter: blur(10px);
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      background: rgba(17,24,39,0.6);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      transform: translateY(30px) scale(.98);
+      opacity: 0;
+      transition: opacity .9s ease, transform .9s cubic-bezier(.16,1,.3,1), box-shadow .4s ease;
     }
-
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
     .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    }
-
-    h1, h2, h3 {
-      letter-spacing: 1px;
-    }
-
-    p {
-      color: rgb(209, 213, 219);
-      font-size: 15px;
-      margin-top: 5px;
-      margin-bottom: 10px;
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 50px rgba(255,255,255,0.1);
     }
 
     .fade-in {
       opacity: 0;
-      transform: translateY(15px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(20px) scale(.98);
+      transition: opacity 1.1s ease, transform 1.1s cubic-bezier(.22,1,.36,1);
     }
     .fade-in.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
+    }
+
+    video {
+      animation: slow-zoom 30s ease-in-out infinite alternate;
+    }
+    @keyframes slow-zoom {
+      0% {transform:scale(1);}
+      100% {transform:scale(1.05);}
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg,#1e40af,#9ca3af,#1e40af);
+      background-size: 300% 300%;
+      animation: gradient-flow 8s ease infinite;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @keyframes gradient-flow {
+      0%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 50%;}
+    }
+
+    /* ---- custom cursor ---- */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #1e40af;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 10000;
+      mix-blend-mode: difference;
+      transform: translate(-50%,-50%);
+      transition: transform .15s ease-out, width .2s ease, height .2s ease;
+    }
+    .cursor.active {
+      width: 40px;
+      height: 40px;
     }
   </style>
 </head>
 
 <body class="bg-gray-900 text-gray-100 min-h-screen font-mono relative overflow-hidden">
-  <!-- full-page background video -->
+  <!-- background video -->
   <video autoplay muted loop playsinline
     class="fixed inset-0 w-full h-full object-cover -z-10"
     src="https://r2.guns.lol/b1a06759-5701-46b7-8443-ac8871aca5d3.mp4">
   </video>
 
+  <!-- custom cursor -->
+  <div class="cursor" id="cursor"></div>
+
   <main class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
     <div class="flex flex-col items-center space-y-8">
 
-      <!-- snowflakes -->
       <div class="flex flex-wrap justify-center gap-4 opacity-60 fade-in">
-        <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
-        <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
         <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
       </div>
 
-      <!-- profile -->
       <div class="group relative fade-in">
         <img src="https://r2.guns.lol/ba01a19d-a356-41cf-99a0-9b92a3941a42.webp"
              alt="bluj profile"
-             class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg transform group-hover:rotate-6 transition-transform duration-500">
+             class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg transform group-hover:rotate-6 transition-transform duration-700 ease-out">
       </div>
 
-      <!-- name -->
-      <h1 class="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary fade-in">
-        bluj
+      <h1 class="text-5xl font-bold text-center gradient-text fade-in">
+        DJ BLU-J
       </h1>
 
-      <!-- tagline -->
       <h2 class="text-xl text-center text-gray-400 italic fade-in">
-        REAL HAUS_MAN -- SPINNING SINCE N BEFORE THE BERLIN WALL
+        REAL HAUS_MAN — SPINNING SINCE N BEFORE THE BERLIN WALL
       </h2>
 
-      <!-- location -->
       <p class="text-lg text-gray-300 fade-in">HTX</p>
 
-      <!-- socials -->
       <div class="flex space-x-6 pt-4 fade-in">
-        <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors">
+        <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors magnetic">
           <i data-feather="instagram" class="w-6 h-6"></i>
         </a>
-        <a href="https://youtube.com/@BLUJ720" class="hover:text-primary transition-colors">
+        <a href="https://youtube.com/@BLUJ720" class="hover:text-primary transition-colors magnetic">
           <i data-feather="youtube" class="w-6 h-6"></i>
         </a>
       </div>
 
-      <!-- dynamic content -->
       <div id="dynamic-content" class="w-full space-y-8 pt-8 fade-in"></div>
 
-      <!-- counter -->
       <div class="pt-8 text-gray-500 fade-in">
-        <span id="counter">0</span>
-        <span class="px-2">@</span>
+        <span id="counter">0</span><span class="px-2">@</span>
       </div>
 
       <div class="w-full border-t border-gray-700 pt-8 fade-in"></div>
@@ -130,59 +175,75 @@
   </main>
 
   <script>
-    // intersection observer for smooth fade-in on scroll
+    /* fade-in on scroll */
     const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.2 });
-    fadeEls.forEach(el => observer.observe(el));
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('visible'); });
+    },{threshold:.2});
+    fadeEls.forEach(el=>observer.observe(el));
 
-    // dynamic content
-    async function loadDynamicContent() {
-      const contentContainer = document.getElementById('dynamic-content');
-      try {
-        const response = await fetch('https://api.github.com/users/bluj720');
-        const userData = await response.json();
-
-        const sections = [
-          { title: 'About', content: userData.bio || 'Digital creator and content producer.' },
-          { title: 'Latest Projects', content: 'Check out my latest videos and creative work on YouTube and Instagram.' },
-          { title: 'Connect', content: 'Follow me on social media for daily updates and behind-the-scenes content.' }
+    /* dynamic content */
+    async function loadDynamicContent(){
+      const container=document.getElementById('dynamic-content');
+      try{
+        const r=await fetch('https://api.github.com/users/bluj720');
+        const u=await r.json();
+        const sections=[
+          {title:'About',content:u.bio||'Digital creator and content producer.'},
+          {title:'Latest Projects',content:'Check out latest videos on YouTube and Instagram.'},
+          {title:'Connect',content:'Follow for daily updates and behind-the-scenes content.'}
         ];
-
-        sections.forEach(section => {
-          const sectionElement = document.createElement('div');
-          sectionElement.className = 'card fade-in';
-          sectionElement.innerHTML = `
-            <h3 class="text-2xl font-bold text-primary mb-3">${section.title}</h3>
-            <p class="text-gray-300 leading-relaxed">${section.content}</p>
-          `;
-          contentContainer.appendChild(sectionElement);
-          observer.observe(sectionElement);
+        sections.forEach(s=>{
+          const el=document.createElement('div');
+          el.className='card fade-in';
+          el.innerHTML=`<h3 class="text-2xl font-bold text-primary mb-3">${s.title}</h3>
+                        <p class="text-gray-300 leading-relaxed">${s.content}</p>`;
+          container.appendChild(el);
+          observer.observe(el);
         });
-      } catch {
-        contentContainer.innerHTML = '<p class="text-gray-400">Content loading...</p>';
-      }
+      }catch{container.innerHTML='<p class="text-gray-400">Content loading…</p>';}
     }
 
-    // animated counter
-    function animateCounter() {
-      const counter = document.getElementById('counter');
-      let count = 0;
-      const target = Math.floor(Math.random() * 1000) + 100;
-      const interval = setInterval(() => {
-        count += Math.ceil(target / 50);
-        if (count >= target) {
-          count = target;
-          clearInterval(interval);
-        }
-        counter.textContent = count;
-      }, 50);
+    /* counter */
+    function animateCounter(){
+      const c=document.getElementById('counter');
+      let n=0,target=Math.floor(Math.random()*1000)+100;
+      const i=setInterval(()=>{
+        n+=Math.ceil(target/50);
+        if(n>=target){n=target;clearInterval(i);}
+        c.textContent=n;
+      },50);
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    /* smooth inertia scroll */
+    let current=0,targetScroll=0;
+    function smoothScroll(){
+      current += (targetScroll - current) * 0.1;
+      document.body.style.transform = `translateY(${-current}px)`;
+      requestAnimationFrame(smoothScroll);
+    }
+    window.addEventListener('scroll',()=>{
+      targetScroll = window.scrollY;
+    });
+    requestAnimationFrame(smoothScroll);
+
+    /* magnetic cursor */
+    const cursor=document.getElementById('cursor');
+    let x=0,y=0,tx=0,ty=0;
+    window.addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY;});
+    function animateCursor(){
+      x+=(tx-x)*0.2; y+=(ty-y)*0.2;
+      cursor.style.left=x+'px'; cursor.style.top=y+'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('.magnetic').forEach(el=>{
+      el.addEventListener('mouseenter',()=>cursor.classList.add('active'));
+      el.addEventListener('mouseleave',()=>cursor.classList.remove('active'));
+    });
+
+    document.addEventListener('DOMContentLoaded',()=>{
       feather.replace();
       loadDynamicContent();
       animateCounter();
