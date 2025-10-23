@@ -119,6 +119,11 @@
       width: 40px;
       height: 40px;
     }
+
+    .playlist-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
   </style>
 </head>
 
@@ -132,28 +137,26 @@
   <!-- custom cursor -->
   <div class="cursor" id="cursor"></div>
 
-  <main class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
+  <nav class="fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 z-50">
+    <ul class="flex justify-center space-x-4">
+      <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+      <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+      <li><a href="#achievements" class="hover:text-primary transition-colors">Achievements</a></li>
+      <li><a href="#playlists" class="hover:text-primary transition-colors">Playlists</a></li>
+      <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="home" class="container mx-auto px-4 py-12 max-w-4xl relative z-10 pt-24">
     <div class="flex flex-col items-center space-y-8">
 
-      <div class="flex flex-wrap justify-center gap-4 opacity-60 fade-in">
-        <span>❅</span><span>❅</span><span>❅</span><span>❅</span>
-      </div>
-
-      <div class="group relative fade-in">
-        <img src="https://r2.guns.lol/ba01a19d-a356-41cf-99a0-9b92a3941a42.webp"
-             alt="bluj profile"
-             class="w-64 h-64 object-cover rounded-full border-4 border-primary shadow-lg transform group-hover:rotate-6 transition-transform duration-700 ease-out">
-      </div>
-
-      <h1 class="text-5xl font-bold text-center gradient-text fade-in">
+      <h1 class="text-6xl font-bold text-center gradient-text fade-in">
         DJ BLU-J
       </h1>
 
-      <h2 class="text-xl text-center text-gray-400 italic fade-in">
-        REAL HAUS_MAN — SPINNING SINCE N BEFORE THE BERLIN WALL
+      <h2 class="text-2xl text-center text-gray-400 fade-in">
+        International DJ & Producer
       </h2>
-
-      <p class="text-lg text-gray-300 fade-in">HTX</p>
 
       <div class="flex space-x-6 pt-4 fade-in">
         <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors magnetic">
@@ -173,6 +176,86 @@
       <div class="w-full border-t border-gray-700 pt-8 fade-in"></div>
     </div>
   </main>
+
+  <section id="about" class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
+    <h2 class="text-3xl font-bold text-center mb-8">About</h2>
+    <div class="card flex flex-col items-center">
+      <img src="https://r2.guns.lol/ba01a19d-a356-41cf-99a0-9b92a3941a42.webp" alt="DJ BLU-J" class="w-48 h-48 object-cover rounded-full border-4 border-primary shadow-lg mb-4">
+      <p class="text-center">DJ BLU-J is a passionate and innovative DJ with a love for creating unforgettable musical experiences. With a diverse taste in music and a knack for reading the crowd, DJ BLU-J knows how to keep the energy high and the dance floor packed. From intimate gatherings to large-scale events, DJ BLU-J delivers a performance that is both professional and electrifying.</p>
+    </div>
+  </section>
+
+  <section id="achievements" class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
+    <h2 class="text-3xl font-bold text-center mb-8">Achievements</h2>
+    <div class="card">
+      <ul>
+        <li class="achievement-item">
+          <i data-feather="award"></i>
+          <div>
+            <h3 class="font-bold">First Place DJ Competition 2023</h3>
+            <p class="text-gray-400">Won the annual DJ competition in my hometown.</p>
+          </div>
+        </li>
+        <li class="achievement-item">
+          <i data-feather="bar-chart-2"></i>
+          <div>
+            <h3 class="font-bold">Reached 1 Million Streams</h3>
+            <p class="text-gray-400">My latest track hit 1 million streams on Spotify.</p>
+          </div>
+        </li>
+        <li class="achievement-item">
+          <i data-feather="headphones"></i>
+          <div>
+            <h3 class="font-bold">Featured on a Major Radio Station</h3>
+            <p class="text-gray-400">My music was featured on a popular electronic music radio show.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="playlists" class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
+    <h2 class="text-3xl font-bold text-center mb-8">Playlists</h2>
+    <div class="card">
+      <div class="playlist-container">
+        <ul>
+          <li class="playlist-item"><a href="#">Track 1 - Artist 1</a></li>
+          <li class="playlist-item"><a href="#">Track 2 - Artist 2</a></li>
+          <li class="playlist-item"><a href="#">Track 3 - Artist 3</a></li>
+          <li class="playlist-item"><a href="#">Track 4 - Artist 4</a></li>
+          <li class="playlist-item"><a href="#">Track 5 - Artist 5</a></li>
+          <li class="playlist-item"><a href="#">Track 6 - Artist 6</a></li>
+          <li class="playlist-item"><a href="#">Track 7 - Artist 7</a></li>
+          <li class="playlist-item"><a href="#">Track 8 - Artist 8</a></li>
+          <li class="playlist-item"><a href="#">Track 9 - Artist 9</a></li>
+          <li class="playlist-item"><a href="#">Track 10 - Artist 10</a></li>
+          <li class="playlist-item"><a href="#">Track 11 - Artist 11</a></li>
+          <li class="playlist-item"><a href="#">Track 12 - Artist 12</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container mx-auto px-4 py-12 max-w-4xl relative z-10">
+    <h2 class="text-3xl font-bold text-center mb-8">Contact</h2>
+    <div class="card">
+      <form>
+        <div class="mb-4">
+          <label for="name" class="block text-gray-400">Name</label>
+          <input type="text" id="name" name="name" class="w-full bg-gray-800 border border-gray-700 rounded py-2 px-3 text-white">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-400">Email</label>
+          <input type="email" id="email" name="email" class="w-full bg-gray-800 border border-gray-700 rounded py-2 px-3 text-white">
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-gray-400">Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full bg-gray-800 border border-gray-700 rounded py-2 px-3 text-white"></textarea>
+        </div>
+        <button type="submit" class="bg-primary text-white py-2 px-4 rounded">Send</button>
+      </form>
+    </div>
+  </section>
 
   <script>
     /* fade-in on scroll */
@@ -247,6 +330,16 @@
       feather.replace();
       loadDynamicContent();
       animateCounter();
+
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
     });
   </script>
 </body>
