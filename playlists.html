@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlists - DJ BLU-J</title>
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e40af',
+            secondary: '#9ca3af'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Arial", sans-serif;
+      background-color: #0b0b0b;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .card {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 24px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      background: rgba(17,24,39,0.6);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .playlist-container {
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .playlist-item {
+      padding: 0.5rem 1rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .playlist-item:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    video {
+      animation: slow-zoom 30s ease-in-out infinite alternate;
+    }
+    @keyframes slow-zoom {
+      0% {transform:scale(1);}
+      100% {transform:scale(1.05);}
+    }
+
+    /* Swup transitions */
+    .transition-fade {
+      transition: 0.4s;
+      opacity: 1;
+    }
+
+    html.is-animating .transition-fade {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-900 text-gray-100 min-h-screen font-mono relative overflow-hidden">
+  <video autoplay muted loop playsinline
+    class="fixed inset-0 w-full h-full object-cover -z-10"
+    src="https://r2.guns.lol/b1a06759-5701-46b7-8443-ac8871aca5d3.mp4">
+  </video>
+
+  <nav class="fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 z-50">
+    <ul class="flex justify-center space-x-4">
+      <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+      <li><a href="about.html" class="hover:text-primary transition-colors">About</a></li>
+      <li><a href="achievements.html" class="hover:text-primary transition-colors">Achievements</a></li>
+      <li><a href="playlists.html" class="hover:text-primary transition-colors">Playlists</a></li>
+      <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="swup" class="container mx-auto px-4 py-12 max-w-4xl relative z-10 pt-24 transition-fade">
+    <div class="flex flex-col items-.center space-y-8">
+      <h1 class="text-5xl font-bold text-center gradient-text">Playlists</h1>
+      <div class="card">
+        <div class="playlist-container">
+          <ul>
+            <li class="playlist-item"><a href="#">Track 1 - Artist 1</a></li>
+            <li class="playlist-item"><a href="#">Track 2 - Artist 2</a></li>
+            <li class="playlist-item"><a href="#">Track 3 - Artist 3</a></li>
+            <li class="playlist-item"><a href="#">Track 4 - Artist 4</a></li>
+            <li class="playlist-item"><a href="#">Track 5 - Artist 5</a></li>
+            <li class="playlist-item"><a href="#">Track 6 - Artist 6</a></li>
+            <li class="playlist-item"><a href="#">Track 7 - Artist 7</a></li>
+            <li class="playlist-item"><a href="#">Track 8 - Artist 8</a></li>
+            <li class="playlist-item"><a href="#">Track 9 - Artist 9</a></li>
+            <li class="playlist-item"><a href="#">Track 10 - Artist 10</a></li>
+            <li class="playlist-item"><a href="#">Track 11 - Artist 11</a></li>
+            <li class="playlist-item"><a href="#">Track 12 - Artist 12</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="flex space-x-6 pt-4">
+        <a href="https://instagram.com/bluj720" class="hover:text-primary transition-colors">
+          <i data-feather="instagram" class="w-6 h-6"></i>
+        </a>
+        <a href="https://youtube.com/@BLUJ720" class="hover:text-primary transition-colors">
+          <i data-feather="youtube" class="w-6 h-6"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    feather.replace();
+    const swup = new Swup();
+  </script>
+</body>
+</html>
